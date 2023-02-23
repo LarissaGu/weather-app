@@ -15,47 +15,66 @@ function showCelsius() {
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+// Timestamp
+function formatDate() {
+  let months = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
 
-let months = [
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-];
+  let now = new Date();
+  let date = now.getDate();
+  let month = months[now.getMonth()];
+  let year = now.getFullYear();
 
-let now = new Date();
-let currentDay = days[now.getDay()];
-let currentDate = now.getDate();
-let currentMonth = months[now.getMonth()];
-let currentYear = now.getFullYear();
-let currentHour = now.getHours();
-let currentMinutes = now.getMinutes();
+  return `${date}/${month}/${year}`;
+}
 
-let day = document.querySelector("#current-day");
-day.innerHTML = `${currentDay}`;
+function formatDay() {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-let date = document.querySelector("#current-date");
-date.innerHTML = `${currentDate}/${currentMonth}/${currentYear}`;
+  let now = new Date();
+  let day = days[now.getDay()];
+  return `${day}`;
+}
 
-let time = document.querySelector("#current-time");
-time.innerHTML = `${currentHour}:${currentMinutes}`;
+function formatTime() {
+  let now = new Date();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+let currentDay = document.querySelector("#current-day");
+currentDay.innerHTML = formatDay();
+let currentDate = document.querySelector("#current-date");
+currentDate.innerHTML = formatDate();
+let currentTime = document.querySelector("#current-time");
+currentTime.innerHTML = formatTime();
 
 // Search engine
 function showWeather(response) {
