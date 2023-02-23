@@ -94,6 +94,10 @@ p.current-location {
   text-decoration: underline;
 }
 
+p.current-location:hover {
+  cursor: pointer;
+}
+
 #weather-description {
   text-transform: capitalize;
 }
