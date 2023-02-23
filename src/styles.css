@@ -9,8 +9,25 @@ h3 {
   font-family: "Montserrat Alternates", sans-serif;
 }
 
-p {
+div h3 {
+  font-size: 20px;
+}
+
+p,
+li {
   font-family: "Montserrat", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+div ul {
+  padding-left: 0;
 }
 
 footer {
@@ -39,7 +56,7 @@ div.container {
 }
 
 .row {
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 div.form {
@@ -47,8 +64,13 @@ div.form {
   margin: 0 auto;
   font-family: "Montserrat", sans-serif;
 }
+
 .current-city {
-  padding: 30px;
+  padding-top: 30px;
+}
+
+.time-date {
+  padding-top: 50px;
 }
 
 .units {
@@ -59,10 +81,6 @@ div.form {
 
 .units a {
   text-decoration: none;
-}
-
-.current-date {
-  padding: 30px;
 }
 
 .search-field {
@@ -98,6 +116,16 @@ p.current-location:hover {
   cursor: pointer;
 }
 
-#weather-description {
+ul.weather-info {
+  text-align: center;
+  margin: 10px auto;
+}
+
+li.pseudo-list {
+  display: inline;
+  padding-right: 10px;
+}
+
+#weather-description:first-letter {
   text-transform: capitalize;
 }

@@ -38,9 +38,10 @@
           </form>
           <p class="current-location">Show weather in my current location</p>
         </div>
+
         <div class="row">
           <div class="col-3">
-            <i class="fa-solid fa-sun sun current-weather fa-8x"></i>
+            <img src="#" alt="#" id="icon" />
           </div>
           <div class="col-6 current-city">
             <h1></h1>
@@ -55,27 +56,36 @@
             </h2>
             <p id="weather-description"></p>
           </div>
-          <div class="col-3 current-date">
-            <p>
-              <span id="current-day"></span>
-              <br />
-              <span id="current-date"></span>
-              <br />
-              <span id="current-time"></span>
-            </p>
+          <div class="col-3 time-date">
+            <ul>
+              <li id="current-day"></li>
+              <li id="current-date"></li>
+              <li id="current-time"></li>
+            </ul>
           </div>
         </div>
-
+        <hr />
         <div class="row">
-          <h3>
-            Wind:
-            <span id="wind-speed">7</span>
-            km/h | Humidity:
-            <span id="humidity">79</span>
-            %
-          </h3>
-          <h3>Sunrise: 07:35 AM | Sunset: 05:07 PM</h3>
+          <div class="col-6">
+            <ul class="weather-info">
+              <li class="pseudo-list">
+                Wind:
+                <span id="wind-speed"></span>
+                km/h
+              </li>
+              <li class="pseudo-list">
+                Humidity: <span id="humidity"></span> %
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="weather-info">
+              <li class="pseudo-list">Sunrise: 07:35 AM</li>
+              <li class="pseudo-list">Sunset: 05:07 PM</li>
+            </ul>
+          </div>
         </div>
+        <hr />
         <div class="row">
           <div class="col-2 forecast">
             <i class="fa-solid fa-sun sun fa-3x"></i>
