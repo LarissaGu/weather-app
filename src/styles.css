@@ -83,6 +83,16 @@ div.form {
   text-decoration: none;
 }
 
+.active {
+  cursor: default;
+  color: #000;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 .search-field {
   padding: 8px;
   border: 1px solid #596e79;
