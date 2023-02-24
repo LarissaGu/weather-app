@@ -63,6 +63,41 @@ function formatTime() {
   return `${hours}:${minutes}`;
 }
 
+function showForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col-2 forecast">
+              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png" alt="" />
+              <p>
+                <span id="max-temperature-forecast">${Math.round(
+                  forecastDay.temperature.minimum
+                )}</span>
+                °C | <span id="min-temperature-forecast">${Math.round(
+                  forecastDay.temperature.maximum
+                )}</span>°C
+              </p>
+              <p>${formatDay(forecastDay.time)}</p>
+            </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(city) {
+  let apiKey = "f1adaca67t6e03d488b4ca1d5710830o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 // Search engine
 function showWeather(response) {
   let searchedCityElement = document.querySelector("h1");
@@ -85,7 +120,7 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 
-  getForecast(response);
+  getForecast(response.data.city);
 }
 
 function search(city) {
@@ -129,41 +164,6 @@ function showCelsius(event) {
   fahrenheitLink.classList.remove("active");
   let currentTemperatureElement = document.querySelector("#temperature");
   currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function showForecast(response) {
-  let forecast = response.data.daily;
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
-            <div class="col-2 forecast">
-              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-                forecastDay.condition.icon
-              }.png" alt="" />
-              <p>
-                <span id="max-temperature-forecast">${Math.round(
-                  forecastDay.temperature.minimum
-                )}</span>
-                °C | <span id="min-temperature-forecast">${Math.round(
-                  forecastDay.temperature.maximum
-                )}</span>°C
-              </p>
-              <p>${formatDay(forecastDay.time)}</p>
-            </div>`;
-    }
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-function getForecast(city) {
-  let apiKey = "f1adaca67t6e03d488b4ca1d5710830o";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showForecast);
 }
 
 let currentDay = document.querySelector("#current-day");
