@@ -97,6 +97,18 @@ function getForecast(city) {
   axios.get(apiUrl).then(showForecast);
 }
 
+function defineEmoji(response) {
+  let feelsLikeEmoji = document.querySelector("#feels-like-emoji");
+  let feelsLikeElement = Math.round(response.data.temperature.feels_like);
+  if (feelsLikeElement < 10) {
+    feelsLikeEmoji.innerHTML = "⛄️";
+  } else if (feelsLikeElement >= 10 && feelsLikeElement < 25) {
+    feelsLikeEmoji.innerHTML = "🌻";
+  } else {
+    feelsLikeEmoji.innerHTML = "🏝";
+  }
+}
+
 function showWeather(response) {
   console.log(response.data);
   let searchedCityElement = document.querySelector("h1");
@@ -107,6 +119,7 @@ function showWeather(response) {
   let currentHumidityElement = document.querySelector("#humidity");
   let currentWindElement = document.querySelector("#wind-speed");
   let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
 
   searchedCityElement.innerHTML = response.data.city;
   currentTemperatureElement.innerHTML = Math.round(
@@ -120,7 +133,9 @@ function showWeather(response) {
     `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+  feelsLikeElement.innerHTML = Math.round(response.data.temperature.feels_like);
 
+  defineEmoji(response);
   getForecast(response.data.city);
 }
 

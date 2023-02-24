@@ -2,20 +2,18 @@ section {
   border: 1px solid #596e79;
   border-radius: 10px;
   padding: 20px 10px;
-}
-h1,
-h2,
-h3 {
-  font-family: "Montserrat Alternates", sans-serif;
+  background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
-div h3 {
-  font-size: 20px;
+h1,
+h2 {
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
 p,
 li {
   font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
 img {
@@ -83,6 +81,10 @@ div.form {
   margin: 0 auto;
 }
 
+.emoji {
+  font-size: 24px;
+}
+
 p.current-location {
   margin-top: 10px;
   font-weight: 600;
@@ -96,12 +98,12 @@ p.current-location:hover {
 
 ul.weather-info {
   text-align: center;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 li.pseudo-list {
   display: inline;
-  padding-right: 10px;
+  padding: 0px 20px;
 }
 
 #weather-description:first-letter {
