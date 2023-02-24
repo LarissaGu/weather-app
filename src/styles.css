@@ -81,6 +81,14 @@ div.form {
   margin: 0 auto;
 }
 
+.forecast-temp {
+  font-size: 14px;
+}
+
+.forecast-day {
+  font-size: 12px;
+}
+
 .emoji {
   font-size: 24px;
 }
