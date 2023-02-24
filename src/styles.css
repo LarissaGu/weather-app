@@ -37,18 +37,6 @@ footer {
   font-size: 14px;
 }
 
-i {
-  padding: 10px 10px 20px 10px;
-}
-
-i.sun {
-  color: #ffc93c;
-}
-
-i.cloud {
-  color: #596e79;
-}
-
 div.container {
   max-width: 800px;
   padding: 40px 20px 20px 20px;
@@ -71,26 +59,6 @@ div.form {
 
 .time-date {
   padding-top: 50px;
-}
-
-.units {
-  font-size: 14px;
-  position: relative;
-  top: -14px;
-}
-
-.units a {
-  text-decoration: none;
-}
-
-.active {
-  cursor: default;
-  color: #000;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: #000;
 }
 
 .search-field {
