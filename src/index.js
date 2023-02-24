@@ -31,7 +31,7 @@ function formatDate() {
   let month = months[now.getMonth()];
   let year = now.getFullYear();
 
-  return `${day} ${date}/${month}/${year}`;
+  return `${day}<br />${date}/${month}/${year}`;
 }
 
 function formatDay(timestamp) {
